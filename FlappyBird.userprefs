@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GameoverUI.cs">
+    <Files>
+      <File FileName="Assets\Script\GameoverUI.cs" Line="94" Column="38" />
+      <File FileName="Assets\Script\MedalEffectSapwn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\MedalEffectSpriteDisappear.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\StartBtn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\PipeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\PipUpAndDown.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\BirdController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\TranslateGround.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

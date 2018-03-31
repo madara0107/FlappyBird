@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{1544446D-B2B0-5D18-46DB-C497D85E3A24}") = "像素鸟FlappyBird游戏源码", "Assembly-CSharp.csproj", "{66CDB81D-6DBE-3088-75ED-ABF566CB9102}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66CDB81D-6DBE-3088-75ED-ABF566CB9102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66CDB81D-6DBE-3088-75ED-ABF566CB9102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66CDB81D-6DBE-3088-75ED-ABF566CB9102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66CDB81D-6DBE-3088-75ED-ABF566CB9102}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
