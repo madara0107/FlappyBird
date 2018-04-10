@@ -11,11 +11,14 @@ public class PipeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameManager._instance.gameState == GameManager.GameState.running) {
-			gameObject.transform.Translate (Vector3.left * speed * Time.deltaTime);
-			if (gameObject.transform.position.x < -6) {
-				Destroy (gameObject);
-			}
-		}
+        if (GameManager._instance.gameState == GameManager.GameState.running)
+        {
+            gameObject.transform.Translate(Vector3.left * speed * Time.deltaTime);
+            if (gameObject.transform.position.x < -6)
+            {
+                Destroy(gameObject);
+            }
+        }
+       
 	}
 }

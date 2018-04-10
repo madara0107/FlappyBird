@@ -51,19 +51,86 @@ public class birdController : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        Debug.Log(gameManager._instance.gameState);
+
+        if (gameManager._instance.gameState == gameManager.GameState.running)
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 5;
-            audioSource[0].Play();
+            if (Input.GetMouseButtonDown(0))
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 5;
+                audioSource[0].Play();
+            }
+            //birdImage
+            birdImage.transform.eulerAngles = new Vector3(0, 0, gameObject.GetComponent<Rigidbody2D>().velocity.y * 10);
         }
-        //birdImage
-        birdImage.transform.eulerAngles = new Vector3(0, 0, gameObject.transform.GetComponent<Rigidbody2D>().velocity.y * 10);
-	    
+
+        //小鸟死亡
+        if (gameManager._instance.gameState == gameManager.GameState.over)
+        {
+            birdImage.transform.Rotate(Vector3.back * 400 * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        }
+
+        //不能旋转过头
+        if (birdImage.transform.eulerAngles.z < 270 && birdImage.transform.eulerAngles.z > 180)
+        {
+            birdImage.transform.eulerAngles = new Vector3(0, 0, 270);
+        }
 
         //不能飞太高
         if (gameObject.transform.position.y > 5)
         {
+            //限制最高距离
             gameObject.transform.position = new Vector3(-1, 5 , 0);
+            //将速度设为0
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
+        if (gameManager._instance.gameState != gameManager.GameState.over)
+        {    
+            //播放动画
+            birdFlyTimer += Time.deltaTime;
+            flyAnimationFrameIndex = (int)(birdFlyTimer * flyAnimationSpeed) % 3;
+            birdRenderer.sprite = birdSprite[flyAnimationFrameIndex];
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.y < -5)
+            {
+                birdRenderer.sprite = birdSprite[0];
+            }
+        }
+        else
+        {
+            birdRenderer.sprite = birdSprite[0];
+        }
+
+        if (gameManager._instance.gameState == gameManager.GameState.menu)
+        {
+            birdMoveCount_menu++;
+            if (birdMoveCount_menu > 20)
+            {
+                birdMoveCount_menu = 0;
+                birdMove_menu = -birdMove_menu;
+            }
+            gameObject.transform.Translate(Vector3.up * birdMove_menu);
+
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "addScore")
+        {
+            gameManager._instance.score++;
+            audioSource[3].Play();
+        }  
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "barrier" && gameManager._instance.gameState != gameManager.GameState.over)
+        {
+            gameManager._instance.gameState = gameManager.GameState.over;
+            audioSource[1].Play();
+            audioSource[2].Play();
         }
     }
 }

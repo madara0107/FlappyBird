@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
 
 	void createPipes(){
 		GameObject newPipe = Instantiate (pipe, new Vector3 (6, 0, 0), Quaternion.identity) as GameObject;
-		newPipe.transform.Translate (Vector3.up*Random.Range(-1.2f,2.3f));
+		newPipe.transform.Translate (Vector3.up * Random.Range(-1.2f,2.3f));
 	}
 
 	IEnumerator createDeathEffect(){

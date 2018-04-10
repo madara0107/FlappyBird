@@ -42,6 +42,8 @@ public class BirdController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        Debug.Log(GameManager._instance.gameState);
 		//控制小鸟旋转
 		if (GameManager._instance.gameState == GameManager.GameState.running) {
 			if (Input.GetMouseButtonDown (0)) {
@@ -79,6 +81,7 @@ public class BirdController : MonoBehaviour {
 		} else {
 			birdRender.sprite = birdSprite [0];
 		}
+
 		if (GameManager._instance.gameState == GameManager.GameState.menu) {
 			birdMoveCount_menu++;
 			if(birdMoveCount_menu>20){
